@@ -56,6 +56,24 @@ public class MainTestSuite {
 	}
 	
 	@Test
+	public void testPass_GetCourse () {
+		// Get course for TeeLand course
+		final String courseName = "TeeLand";
+		//get return object
+		Course returnedCourse = Main.newCourse(courseName);
+		// verify we are getting round object from collection for TeeLand course
+		assertEquals("Expected object for Teeland course", returnedCourse.CourseName == courseName);
+	}
+	@Test
+	public void testPass_scoreSoFar () {
+		final int score = 9;
+		// get return value from method
+		int returnedStrokes = Main.currentScore();
+		// make sure currentScore is returning expected values
+		assertEquals("Expected = 9", score==returnedStrokes );
+	}
+	
+	@Test
 	public void testFail_newRound () {
 		// Get round for player John Doe in PuttLand course
 		final String playerName = "John Doe";
@@ -66,6 +84,8 @@ public class MainTestSuite {
 		// verify we are really getting round object for John Doe in PuttLand course
 		assertFalse("Expected object for John Doe and PuttLand", returnedRound.PlayerName == playerName && returnedRound.CourseName == courseName);		
 	}
+
+	
 	
 	@Test
 	public void testFail_getRound () {
@@ -78,15 +98,7 @@ public class MainTestSuite {
 		assertFalse("Expected object for John Doe and PuttLand", returnedRound.PlayerName == playerName && returnedRound.CourseName == courseName);		
 	}
 	
-	@Test
-	public void testPass_GetCourse () {
-		// Get course for TeeLand course
-		final String courseName = "TeeLand";
-		//get return object
-		Course returnedCourse = Main.newCourse(courseName);
-		// verify we are getting round object from collection for TeeLand course
-		assertEquals("Expected object for Teeland course", returnedCourse.CourseName == courseName);
-	}
+	
 	@Test
 	public void testFail_GetCourse () {
 		// Get course for TeeLand course
@@ -98,24 +110,12 @@ public class MainTestSuite {
 	}
 	
 	@Test
-	public void testPass_scoreSoFar () {
-		final String playerName = "Michael James";
-		final String courseName = "TeeLand";
-		// get return value from method
-		int returnedStrokes = Main.currentScore();
-		// make sure currentScore is returning expected values
-		assertEquals("Expected > 0", playerName, courseName, returnedStrokes);
-	
-	}
-	@Test
 	public void testFail_scoreSoFar () {
-		// Get round for player John Doe in PuttLand course
-		final String playerName = "Michael James";
-		final String courseName = "TeeLand";
+		final int score = 9;
 		// get return value from method
 		int returnedStrokes = Main.currentScore();
 		// make sure currentScore is returning expected values
-		assertFalse("Expected > 0", playerName, courseName, returnedStrokes);
+		assertFalse("Expected =18", score==returnedStrokes );
 	}
 		
 	@Test(expected = IllegalArgumentException.class)
