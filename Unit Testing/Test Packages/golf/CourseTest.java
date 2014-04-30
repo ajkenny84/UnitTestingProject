@@ -1,12 +1,8 @@
-/**
- * Package used to test Mini-Golf Course
- */
-package unit_testing;
+package golf;
 
-import golf.Course;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.runner.JUnitCore;
 
 /**
@@ -17,12 +13,12 @@ import org.junit.runner.JUnitCore;
  * Test suite for Course class
  *
  */
-public class CourseTestSuite {
+public class CourseTest {
     Course course1;
     Course course2;
     
     public static void main(String[] args) {
-       JUnitCore.main("CourseTestSuite"); // run the test suite
+       JUnitCore.main("CourseTest"); // run the test suite
     }
     
     @Before
